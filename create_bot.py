@@ -12,3 +12,4 @@ logger = logging.getLogger(__name__)
 
 bot = Bot(token=setings.tg_token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 dp = Dispatcher(storage=MemoryStorage())
+
