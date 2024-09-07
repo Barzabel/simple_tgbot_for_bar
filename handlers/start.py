@@ -18,7 +18,12 @@ async def cmd_start(message: Message):
 
 
 @start_router.message()
-async def button_menu(message: Message):
-    if message.text == 'Меню':
+async def buttoms(message: Message):
+    word_fork = {"Меню":button_menu,}
+    function = word_fork.get(message.text, button_menu)
+    await function(message)
+
+
+async def button_menu(message):
         menu = FSInputFile('data/menu.pdf')
         await message.reply_document(menu, reply_markup=greet_kb)
